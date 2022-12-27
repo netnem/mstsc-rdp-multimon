@@ -18,6 +18,6 @@ After redocking or rebooting the monitor IDs have changed, I now need #4 to be p
 
 
 
-This powershell script will launch mstsc /l, copy the output to the clipboard, parse the output, and write a .rdp file with the appropiate output.  The only requirement to use this script is to understand how to read the mstsc /l output and adjust the script to match your personal setup.  The monitors IDs may change, but the absolute resolution will not. The output of the file will drop a .rdp file to the scripts current directory which you can double click 
+This powershell script will launch mstsc /l, copy the output to the clipboard, parse the output, and write a .rdp file with the appropiate output.  The only requirement to use this script is to understand how to read the mstsc /l output and adjust the script to match your personal setup.  The monitors IDs may change, but the absolute resolution will not. The output of the file will drop a .rdp file to the scripts current directory which you can double click to launch.  In the scripts current form, it will parse a hyper-V virtual machine named "Win10" so please update $IP as necessary in the script.
 
 I couldn't figure out any other way to parse mstsc /l other than ctrl-c to clipboard.  All the other powershell commands I tried didn't exactly line up with mstsc /l's output.
