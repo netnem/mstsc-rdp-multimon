@@ -13,10 +13,10 @@ Please note that Windows display numbers are not the same as mstsc /l output.
 
 Normally a static file works fine for this, but when undocking and redocking, occasionally the monitors change:
 
-After redocking or rebooting the monitor IDs have changed, I now need #4 to be primary:
+After redocking or rebooting the monitor IDs have changed, I now need #4 to be primary (selectedmonitors now needs to be **8, 3, 7**):
 ![image](https://user-images.githubusercontent.com/32517635/209719194-8a683ff0-2885-401c-b7dd-b4f26514f373.png)
 
-selectedmonitors now needs to be **8, 3, 7**.
+
 
 This powershell script will launch mstsc /l, copy the output to the clipboard, parse the output, and write a .rdp file with the appropiate output.  The only requirement to use this script is to understand how to read the mstsc /l output and adjust the script to match your personal setup.  The monitors IDs may change, but the absolute resolution will not. The output of the file will drop a .rdp file to the scripts current directory which you can double click 
 
