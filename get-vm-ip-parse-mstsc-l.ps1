@@ -1,3 +1,4 @@
+#You will need to specify the IP address of the remote device - In this example, I am grabbing it from a hyper-V virtual machine on my host machine.
 $IP = (get-vm -VmName Win10 | Get-VMNetworkAdapter).IpAddresses[0]
 
 mstsc /l
