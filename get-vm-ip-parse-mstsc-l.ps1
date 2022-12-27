@@ -1,6 +1,7 @@
 #You will need to specify the IP address of the remote device - In this example, I am grabbing it from a hyper-V virtual machine on my host machine.
 $IP = (get-vm -VmName Win10 | Get-VMNetworkAdapter).IpAddresses[0]
 
+#grab mstsc /l output via clipboard
 mstsc /l
 $wshell = New-Object -ComObject wscript.shell;
 $wshell.AppActivate('Remote Desktop Connection')
@@ -11,7 +12,10 @@ $rdptext = Get-ClipBoard
 Sleep 1
 $wshell.SendKeys('{ENTER}')
 
+#parse the output line by line fast left monitors always start with 0, and varies depending on monitor size
+
 foreach ($line in $rdptext) {
+    #the resolution and pixel position in the if statement is pulled from mstsc /l 
     if ($line -like '*2560 x 1440; (4480*') {
         $parts = $line -split ':'
         # The number is the first element of the array
